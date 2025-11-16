@@ -1,13 +1,22 @@
+"use client";
+import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import ProductGrid from "./components/ProductGrid";
 import { destinos } from "./data/destinations";
 
 export default function Home() {
-  const items = destinos;
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5101/api/Resort")
+      .then((res) => res.json())
+      .then((data) => setItems(data));
+  }, []);
+
   return (
     <>
       <Hero />
-      <section>
+      <section className=" px-5">
         <h2>POPULAR DESTINATIONS</h2>
         <ProductGrid items={items} />
       </section>
