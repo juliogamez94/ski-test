@@ -14,7 +14,7 @@ const ProductGrid = ({ items }: { items: any[] }) => {
         navigation
         pagination={{ clickable: true }}
         spaceBetween={16}
-        slidesPerView="auto"
+        slidesPerView={3}
       >
         {items.map((item) => (
           <SwiperSlide key={item.id} style={{ width: "260px" }}>

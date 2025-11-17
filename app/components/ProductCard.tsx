@@ -21,9 +21,11 @@ export const ProductCard = ({ item }: { item: any }) => {
         <h3 className="font-semibold">{item.title}</h3>
         <p className="text-sm text-slate-600">{item.location}</p>
         <div className="mt-3 flex items-center justify-between">
-          <span className="font-bold">{item.price}</span>
+          <div>🏞{item.stats.baseElevation} ft</div>
+          <div>❄️{item.stats.avgSnowfall} in</div>
+          <span className="font-bold">${item.price} USD</span>
           <button
-            className="px-3 py-1 border rounded"
+            className="px-3 py-1 border rounded cursor-pointer"
             onClick={() => router.push(`/resort/${item.slug}`)}
           >
             Take a look

@@ -108,10 +108,10 @@ const page = () => {
           </div>
         </div>
       </section>
-      <div className="flex gap-4 mt-6 mb-4 items-center">
+      <div className="flex gap-4 mt-6 mb-4 items-center ">
         <label className="font-semibold ">Sort by: </label>
         <select
-          className="border px-3 py-2 rounded"
+          className="border px-3 py-2 rounded cursor-pointer"
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
         >

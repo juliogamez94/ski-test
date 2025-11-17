@@ -40,7 +40,7 @@ const ResortCard = ({
           </div>
           <button
             type="button"
-            className="text-2xl"
+            className="text-2xl cursor-pointer "
             onClick={() => onToggleFavorite?.(resort.slug)}
           >
             {isFavorite ? "★" : "☆"}
