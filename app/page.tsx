@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 import ProductGrid from "./components/ProductGrid";
-import { destinos } from "./data/destinations";
 
 export default function Home() {
   const [items, setItems] = useState([]);

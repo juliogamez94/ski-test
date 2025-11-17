@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const ProductCard = ({ item }: { item: any }) => {
+  const router = useRouter();
   return (
     <article className="border rounded-lg overflow-hidden shadow-sm">
       <div className="relative h-48 w-full">
@@ -20,7 +22,12 @@ export const ProductCard = ({ item }: { item: any }) => {
         <p className="text-sm text-slate-600">{item.location}</p>
         <div className="mt-3 flex items-center justify-between">
           <span className="font-bold">{item.price}</span>
-          <button className="px-3 py-1 border rounded">Take a look</button>
+          <button
+            className="px-3 py-1 border rounded"
+            onClick={() => router.push(`/resort/${item.slug}`)}
+          >
+            Take a look
+          </button>
         </div>
       </div>
     </article>

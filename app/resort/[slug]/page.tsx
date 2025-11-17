@@ -1,24 +1,42 @@
-import { dataResorts } from "@/app/data/resorts";
 import Image from "next/image";
-import { FC } from "react";
-
-interface PageProps {
-  params: Promise<{
-    slug: string;
-  }>;
-}
 
 export const revalidate = 300;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return dataResorts.map((resort) => ({
+  const res = await fetch("http://localhost:5101/api/resort");
+  const resorts = await res.json();
+
+  return resorts.map((resort: any) => ({
     slug: resort.slug,
   }));
 }
 
-const ResortDetail: FC<PageProps> = async ({ params }) => {
+async function getResortData(slug: string) {
+  const res = await fetch(`http://localhost:5101/api/resort/${slug}`);
+  if (!res.ok) {
+    return null;
+  }
+  const data = await res.json();
+  return data;
+}
+
+// export async function generateStaticParams() {
+//   return dataResorts.map((resort) => ({
+//     slug: resort.slug,
+//   }));
+// }
+
+const ResortDetail = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
   const { slug } = await params;
-  const resort = dataResorts.find((r) => r.slug === slug);
+  const resort = await getResortData(slug);
+  if (!resort) {
+    return <div>Resort not found</div>;
+  }
   const heroImageUrl = resort?.hero || "/default-hero.jpg";
   return (
     <div className="max-w-7xl mx-auto px-4 py-10">
@@ -33,20 +51,18 @@ const ResortDetail: FC<PageProps> = async ({ params }) => {
       </div>
       <div className="text-center mb-8">
         <h1 className="text-5xl font-extrabold">{resort?.name}</h1>
-        <p className="text-xl mt-2 max-w-4xl mx-auto">{resort?.blurb} </p>
         <p className="text-xl">
           <strong>{resort?.state}</strong>, {resort?.country}
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-10">
-        {/* Sección de "About" */}
         <div className="bg-gray-100 p-8 rounded-xl shadow-lg mb-10">
           <h2 className="text-3xl font-bold text-green-700. mb-4">
             About {resort?.name}
           </h2>
           <p className="text-lg text-gray-700">{resort?.blurb}</p>
-          <p className="text-lg text-gray-600 mt-4">
+          <p className="text-lg text-gray-600 mt-4 mb-5">
             Located in {resort?.state}, {resort?.country}, this resort offers a
             variety of terrains for all levels.
           </p>
