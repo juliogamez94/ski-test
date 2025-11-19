@@ -1,6 +1,6 @@
 # ❄️ Ski Resort Finder
-Apicación web para buscar *Ski resorts*, mostrando información relevante como descripciones, ubicación y datos generales.
-El frontend está desarrollado en **Next.js (React)** y el backend en **.NET** con base de datos **MongoDB**.
+Web application to search *Ski resorts*, showing relevant information such as short descriptions, locations and general data.
+The frontend is developed with **Nextjs (React)** and the backend with **.NET** with database in **MongoDB**.
 
 ---
 
@@ -8,39 +8,36 @@ El frontend está desarrollado en **Next.js (React)** y el backend en **.NET** c
 ## 🚀 1. How to Run Locally
 
 ### **Frontend (FE) – Next.js**
-**Requisitos:**
+**requirements:**
 - Node.js 18+
 - npm
 
-- **Ejecutar:**
+- **Excecute:**
 
 ``` bash
 cd BE
 dotnet restore
 dotnet run
 ```
+The backend will be available on this route:
 
-El backend estará disponible típicamente en:
+    http://localhost:5101
 
-    http://localhost:5000
-
-O el puerto que defina tu `launchSettings.json`.
+Or if you want another port you can set it on `launchSettings.json`.
 
 ------------------------------------------------------------------------
 
 ## 🏗️ 2. Architecture Overview & Trade-offs
-
-La arquitectura se divide en dos partes:
+The architecture is divided on two parts:
 
 ### **Frontend (Next.js)**
 
--   Híbrido CSR/SSR para mejorar rendimiento.
--   Consumo de la API del backend mediante fetch/axios.
--   Desarrollo rápido gracias a React y estructura modular.
+-   Hibryd CSR/SSR for a better performance. 
+-   Api's consumed from the backend with fetch
+-   Fast development thanks to react.
 
-**Trade-offs:** - Next.js requiere configuración adicional para
-optimizar SSR. - La gestión de estado y datos puede generar renders
-innecesarios si no se organiza bien.
+**Trade-offs:** 
+- Next.js Require aditional configuration to optimize the SSR
 
 ### **Backend (.NET + MongoDB)**
 
@@ -57,40 +54,41 @@ validaciones. - No incluye autenticación actualmente.
 
 ### **Fuentes de datos**
 
-Los datos provienen de:
+The data comes from:
 
--   **MongoDB**, gestionada por la API en .NET.
--   Información recopilada mayormente de **ski.com**, usada para
-    descripciones y detalles de los resorts.
+-   **MongoDB**, managed by the API built in .NET.
+-   Information compiled mostly from **ski.com**,
+    used for descriptions and details of the resorts
 
-### **Documentación de la API con Swagger**
 
-Puedes visualizar y probar los endpoints directamente en Swagger UI.
+### **Documentation of the API's with Swagger**
 
-Una vez ejecutado el backend con `dotnet run`, abre en tu navegador:
+You are able to visualize and try out the endpoints directly in Swagger UI.
+
+Once the backend is executed with `dotnet run`, open in your browser:
 
     http://localhost:5101/swagger/index.html
 
-Desde allí puedes: - Ver todos los endpoints disponibles. - Probar
-llamadas a la API. - Ver esquemas y modelos retornados.
+From there you can: 
+- See all the available Endpoints
+- Try out the API Calls
+- See Schemas and models returned
 
 ------------------------------------------------------------------------
 
 ## ✨ 4. What Would You Improve With More Time
 
-Con más tiempo, agregarías/mejorarías:
 
--   Mejor organización y optimización del código Next.js.
--   Mejor UI/UX para una experiencia más moderna y visualmente
-    atractiva.
--   Más resorts y campos adicionales (clima, amenities, niveles de
-    pista, precios, etc.).
--   Loaders mejorados:
-    -   Spinners más detallados
-    -   Skeleton screens para cargas más limpias
--   Sistema de autenticación (login).
--   Mejor manejo de errores en frontend y backend.
--   Tests unitarios para asegurar calidad del código.
+-   Better organization and optimization of the code Next.js.
+-   Improve the UI/UX for a better and modern experience and more atractive.
+-   More resorts and additional fields such as weather, amenities, levels of runs, real prices, etc..
+-   Improved Loaders:
+    - Spinners more detailed
+    - Skeleton screens for cleaner loads
+-   Sistem of autentication (login)
+-   Improve the management of errors for frontend and backend
+-   Unit tests on frontend to ensure the quality of the code 
+-   
 
 ------------------------------------------------------------------------
 
