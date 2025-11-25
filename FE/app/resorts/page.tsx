@@ -10,8 +10,6 @@ const page = () => {
   const [sortOption, setSortOption] = useState<string>("");
   const [favorites, setFavorites] = useState<string>("");
 
-  //   const resortss = dataResorts;
-
   useEffect(() => {
     const stored = localStorage.getItem("favorites");
 
@@ -20,7 +18,7 @@ const page = () => {
 
   useEffect(() => {
     if (favorites !== null) {
-      localStorage.setItem("favorites", JSON.stringify(favorites));
+      localStorage.setItem("favorites", favorites); //codigo fixeado, antes se agregaba como JSON.stringify, lo que generaba errores y me agregaba comillas extras al final
     }
   }, [favorites]);
 

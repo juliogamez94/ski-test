@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 export const revalidate = 300;
-export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const res = await fetch("http://localhost:5101/api/resort");
@@ -20,12 +19,6 @@ async function getResortData(slug: string) {
   const data = await res.json();
   return data;
 }
-
-// export async function generateStaticParams() {
-//   return dataResorts.map((resort) => ({
-//     slug: resort.slug,
-//   }));
-// }
 
 const ResortDetail = async ({
   params,

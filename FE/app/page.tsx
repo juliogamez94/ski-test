@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import ProductGrid from "./components/ProductGrid";
 import { ResortsBanner } from "./components/ResortsBanner";
 import { useRouter } from "next/navigation";
+import Header from "./components/Header";
 
 export default function Home() {
   const [items, setItems] = useState([]);
@@ -22,6 +23,7 @@ export default function Home() {
 
   return (
     <>
+      {/* <Header /> */}
       <Hero
         query={query}
         setQuery={setQuery}
