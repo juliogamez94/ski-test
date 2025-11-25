@@ -18,7 +18,7 @@ const page = () => {
 
   useEffect(() => {
     if (favorites !== null) {
-      localStorage.setItem("favorites", favorites); //codigo fixeado, antes se agregaba como JSON.stringify, lo que generaba errores y me agregaba comillas extras al final
+      localStorage.setItem("favorites", favorites);
     }
   }, [favorites]);
 

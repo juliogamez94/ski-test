@@ -1,6 +1,6 @@
 "use client";
 import { ProductCard } from "./ProductCard";
-import { Autoplay, FreeMode, Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProductGrid = ({ items }: { items: any[] }) => {
